@@ -28,7 +28,7 @@ Day 2 Challenge: AI Enabled - Email Classifier
         a. 5 - English Language Emails
         b. 5 - Russian Language Emails
         c. 5 - Hindi Langugage Emails
-        d. 5 - Frech Emails
+        d. 5 - French Emails
 5. Create 4 Folders - For each language in Email.
 6. Using Language Detection classify all the emails to respective folders.
 7. Read Email Body of english language emails and identify sentimes from each email.
