@@ -18,11 +18,11 @@ Day 2 Challenge: Intelligent Email Classifier
 Day 2 Challenge: Intelligent Email Classifier
 
 1. Create 2 ML Projests in AI Center
-      a. Sentiment Analysis
-      b. Language Detection
+        a. Sentiment Analysis
+        b. Language Detection
 2. Deploy 2 ML Skills - Non retrainable models 
-      a. Language Analysis - SentimentAnalysis
-      b. Language Analysis - LanguageDetection
+        a. Language Analysis - SentimentAnalysis
+        b. Language Analysis - LanguageDetection
 3. Create a UiPath Workflow as follows
 4. Input: 20 Emails in different langugages as follows: 
         a. 5 - English Language Emails
