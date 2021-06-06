@@ -15,7 +15,7 @@ Day 2 Challenge: Intelligent Email Classifier
 11. Classify email in specific folders.
 
 -----------------------------------------------------------------------------------------------------------
-Day 2 Challenge: Intelligent Email Classifier
+Day 2 Challenge: AI Enabled - Email Classifier
 
 1. Create 2 ML Projests in AI Center
         a. Sentiment Analysis
