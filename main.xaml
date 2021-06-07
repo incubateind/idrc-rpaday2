@@ -1,0 +1,392 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="624,701" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:um="clr-namespace:UiPath.MLServices;assembly=UiPath.MLServices" xmlns:uma="clr-namespace:UiPath.MLServices.Activities;assembly=UiPath.MLServices.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="82">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.MLServices</x:String>
+      <x:String>UiPath.MLServices.Enums</x:String>
+      <x:String>UiPath.MLServices.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="23">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.MLServices</AssemblyReference>
+      <AssemblyReference>UiPath.MLServices.Activities</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="listofmails" />
+      <Variable x:TypeArguments="sd:DataTable" Name="emaildt" />
+    </Flowchart.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <av:Point x:Key="ShapeLocation">0,2.5</av:Point>
+        <av:Size x:Key="ShapeSize">60,75</av:Size>
+        <av:PointCollection x:Key="ConnectorLocation">60,40 240,40 240,54.5</av:PointCollection>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <x:Reference>__ReferenceID7</x:Reference>
+    </Flowchart.StartNode>
+    <FlowStep x:Name="__ReferenceID2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">120,141</av:Point>
+          <av:Size x:Key="ShapeSize">200,51</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">220,192 220,222 240,222 240,249</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[listofmails]">
+        <ui:ForEach.Body>
+          <ActivityAction x:TypeArguments="snm:MailMessage">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="email" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1513,1446" sap2010:WorkflowViewState.IdRef="Sequence_1">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="input" />
+                <Variable x:TypeArguments="x:String" Name="JSON_data" />
+                <Variable x:TypeArguments="njl:JObject" Name="JSONObject" />
+                <Variable x:TypeArguments="x:String" Name="language" />
+                <Variable x:TypeArguments="x:String" Name="confidence" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="1471,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[input]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[email.body.ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="1471,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[input]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[input.Trim()]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1471,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[input]" />
+              <uma:MLSkills ApiKey="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Name="{x:Null}" NumberOfRetries="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SkillURL="{x:Null}" StatusCode="{x:Null}" TimeOutMs="{x:Null}" Connection="Robot" DisplayName="MLSkill" ExternApiFileType="JSON" sap:VirtualizedContainerService.HintSize="1471,51" sap2010:WorkflowViewState.IdRef="MLSkills_2" Item="[input]" JsonResponse="[JSON_data]" NextPageNum="2" RefreshList="False" TotalCount="3">
+                <uma:MLSkills.MLSkillList>
+                  <scg:List x:TypeArguments="um:MLSkill" Capacity="4">
+                    <um:MLSkill AccessUri="https://ai-uipath-eus.deskover.com/mlskills/046ad38a-73da-4c18-8e8e-b970abd9f38c/4da9150e-3406-4eb6-9e8e-64b3cd58f8cb/airline-sentiments" AccountId="046ad38a-73da-4c18-8e8e-b970abd9f38c" Description="identify sentiments of passengers" Id="9debee6d-133c-40a6-85a4-fc6d280c0082" InputDescription="Text to be analyzed. For example: 'I am dissatisfied with this service.'" InputType="JSON" Name="Airline_sentiments" OutputDescription="JSON with class name and confidence on that class prediction (between 0-1) Class prediction can be one of: 'Very Negative', 'Negative', 'Neutral', 'Positive', 'Very Positive' For example: '{'sentiment': 'Very Negative', 'confidence': 0.97}'" ProjectId="098b884e-ad00-4f17-860c-3f5568b6110c" TenantId="4da9150e-3406-4eb6-9e8e-64b3cd58f8cb" />
+                    <x:Reference>__ReferenceID0</x:Reference>
+                    <um:MLSkill AccessUri="https://ai-uipath-eus.deskover.com/mlskills/046ad38a-73da-4c18-8e8e-b970abd9f38c/4da9150e-3406-4eb6-9e8e-64b3cd58f8cb/sentiment" AccountId="046ad38a-73da-4c18-8e8e-b970abd9f38c" Description="" Id="064c5b03-c85d-40dc-b5fc-225f458e7c38" InputDescription="Text to be analyzed. For example: 'I am dissatisfied with this service.'" InputType="JSON" Name="sentiment" OutputDescription="JSON with class name and confidence on that class prediction (between 0-1) Class prediction can be one of: 'Very Negative', 'Negative', 'Neutral', 'Positive', 'Very Positive' For example: '{'sentiment': 'Very Negative', 'confidence': 0.97}'" ProjectId="4ed325cd-7449-4b01-ae50-c277c5f4e4cc" TenantId="4da9150e-3406-4eb6-9e8e-64b3cd58f8cb" />
+                  </scg:List>
+                </uma:MLSkills.MLSkillList>
+                <uma:MLSkills.SelectedMLSkill>
+                  <um:MLSkill x:Name="__ReferenceID0" AccessUri="https://ai-uipath-eus.deskover.com/mlskills/046ad38a-73da-4c18-8e8e-b970abd9f38c/4da9150e-3406-4eb6-9e8e-64b3cd58f8cb/language-detection" AccountId="046ad38a-73da-4c18-8e8e-b970abd9f38c" Description="" Id="8bb9d59d-5c4f-4b0d-a080-40281071b5de" InputDescription="Text to be analyzed. For example: 'Necesito ayuda con mi pedido.'" InputType="JSON" Name="language_detection" OutputDescription="JSON with prediction of the language. Output will be a prediction for the input's language along with a confidence of that prediction. { 'language':'Spanish', 'confidence': 1.0 }" ProjectId="1d0f33e4-3852-49be-b2b6-0ea52718a064" TenantId="4da9150e-3406-4eb6-9e8e-64b3cd58f8cb" />
+                </uma:MLSkills.SelectedMLSkill>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uma:MLSkills>
+              <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="1471,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[JSONObject]" JsonString="[JSON_data]" />
+              <Assign sap:VirtualizedContainerService.HintSize="1471,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[language]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[JSONObject("language").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="1471,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[confidence]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[JSONObject("confidence").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <If Condition="[language = &quot;Russian&quot;]" sap:VirtualizedContainerService.HintSize="1471,561" sap2010:WorkflowViewState.IdRef="If_2">
+                <If.Then>
+                  <ui:MoveOutlookMessage Account="shrt08012002@gmail.com" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_1" MailFolder="russian" MailMessage="[email]" />
+                </If.Then>
+                <If.Else>
+                  <If Condition="[language = &quot;French&quot;]" sap:VirtualizedContainerService.HintSize="1092,403" sap2010:WorkflowViewState.IdRef="If_3">
+                    <If.Then>
+                      <ui:MoveOutlookMessage Account="shrt08012002@gmail.com" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_2" MailFolder="french" MailMessage="[email]" />
+                    </If.Then>
+                    <If.Else>
+                      <If Condition="[language = &quot;Hindi&quot;]" sap:VirtualizedContainerService.HintSize="713,245" sap2010:WorkflowViewState.IdRef="If_4">
+                        <If.Then>
+                          <ui:MoveOutlookMessage Account="shrt08012002@gmail.com" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_5" MailFolder="hindi" MailMessage="[email]" />
+                        </If.Then>
+                        <If.Else>
+                          <ui:MoveOutlookMessage Account="shrt08012002@gmail.com" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_4" MailFolder="english" MailMessage="[email]" />
+                        </If.Else>
+                      </If>
+                    </If.Else>
+                  </If>
+                </If.Else>
+              </If>
+              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1471,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[JSON_data]" />
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEach.Body>
+      </ui:ForEach>
+      <FlowStep.Next>
+        <FlowStep x:Name="__ReferenceID3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">140,249</av:Point>
+              <av:Size x:Key="ShapeSize">200,22</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">240,271 240,301 270,301 270,314.5</av:PointCollection>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:GetOutlookMailMessages Filter="{x:Null}" FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="shrt08012002@gmail.com" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_4" MailFolder="e" MarkAsRead="False" Messages="[listofmails]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Top="30">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:GetOutlookMailMessages>
+          <FlowStep.Next>
+            <FlowStep x:Name="__ReferenceID5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">170,314.5</av:Point>
+                  <av:Size x:Key="ShapeSize">200,51</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">270,365.5 270,394.5</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ReadRange AddHeaders="True" DataTable="[emaildt]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Sheet1" WorkbookPath="C:\Users\91992\Desktop\English Emails.xlsx">
+                <ui:ReadRange.Range>
+                  <InArgument x:TypeArguments="x:String">
+                    <Literal x:TypeArguments="x:String" Value="" />
+                  </InArgument>
+                </ui:ReadRange.Range>
+              </ui:ReadRange>
+              <FlowStep.Next>
+                <FlowStep x:Name="__ReferenceID4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">170,394.5</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">270,445.5 270,474.5</av:PointCollection>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[listofmails]">
+                    <ui:ForEach.Body>
+                      <ActivityAction x:TypeArguments="snm:MailMessage">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="email" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="392,1106" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:String" Name="input" />
+                            <Variable x:TypeArguments="x:String" Name="JSON_data" />
+                            <Variable x:TypeArguments="njl:JObject" Name="JSONObject" />
+                            <Variable x:TypeArguments="x:String" Name="language" />
+                            <Variable x:TypeArguments="x:String" Name="confidence" />
+                            <Variable x:TypeArguments="x:String" Name="sentiment" />
+                            <Variable x:TypeArguments="x:String" Name="counter" />
+                            <Variable x:TypeArguments="x:String" Name="time" />
+                            <Variable x:TypeArguments="x:String" Name="sender" />
+                            <Variable x:TypeArguments="x:String" Name="subject" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="350,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[time]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[email.Headers("Date")]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="350,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[sender]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[email.From.ToString]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="350,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[subject]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[email.Subject]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="350,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[input]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[email.body.ToString]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="350,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[input]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[input.Trim()]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="350,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[input]" />
+                          <uma:MLSkills ApiKey="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Name="{x:Null}" NumberOfRetries="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SkillURL="{x:Null}" StatusCode="{x:Null}" TimeOutMs="{x:Null}" Connection="Robot" DisplayName="MLSkill" ExternApiFileType="JSON" sap:VirtualizedContainerService.HintSize="350,51" sap2010:WorkflowViewState.IdRef="MLSkills_3" Item="[input]" JsonResponse="[JSON_data]" NextPageNum="2" RefreshList="False" TotalCount="3">
+                            <uma:MLSkills.MLSkillList>
+                              <scg:List x:TypeArguments="um:MLSkill" Capacity="4">
+                                <um:MLSkill AccessUri="https://ai-uipath-eus.deskover.com/mlskills/046ad38a-73da-4c18-8e8e-b970abd9f38c/4da9150e-3406-4eb6-9e8e-64b3cd58f8cb/airline-sentiments" AccountId="046ad38a-73da-4c18-8e8e-b970abd9f38c" Description="identify sentiments of passengers" Id="9debee6d-133c-40a6-85a4-fc6d280c0082" InputDescription="Text to be analyzed. For example: 'I am dissatisfied with this service.'" InputType="JSON" Name="Airline_sentiments" OutputDescription="JSON with class name and confidence on that class prediction (between 0-1) Class prediction can be one of: 'Very Negative', 'Negative', 'Neutral', 'Positive', 'Very Positive' For example: '{'sentiment': 'Very Negative', 'confidence': 0.97}'" ProjectId="098b884e-ad00-4f17-860c-3f5568b6110c" TenantId="4da9150e-3406-4eb6-9e8e-64b3cd58f8cb" />
+                                <um:MLSkill AccessUri="https://ai-uipath-eus.deskover.com/mlskills/046ad38a-73da-4c18-8e8e-b970abd9f38c/4da9150e-3406-4eb6-9e8e-64b3cd58f8cb/language-detection" AccountId="046ad38a-73da-4c18-8e8e-b970abd9f38c" Description="" Id="8bb9d59d-5c4f-4b0d-a080-40281071b5de" InputDescription="Text to be analyzed. For example: 'Necesito ayuda con mi pedido.'" InputType="JSON" Name="language_detection" OutputDescription="JSON with prediction of the language. Output will be a prediction for the input's language along with a confidence of that prediction. { 'language':'Spanish', 'confidence': 1.0 }" ProjectId="1d0f33e4-3852-49be-b2b6-0ea52718a064" TenantId="4da9150e-3406-4eb6-9e8e-64b3cd58f8cb" />
+                                <x:Reference>__ReferenceID1</x:Reference>
+                              </scg:List>
+                            </uma:MLSkills.MLSkillList>
+                            <uma:MLSkills.SelectedMLSkill>
+                              <um:MLSkill x:Name="__ReferenceID1" AccessUri="https://ai-uipath-eus.deskover.com/mlskills/046ad38a-73da-4c18-8e8e-b970abd9f38c/4da9150e-3406-4eb6-9e8e-64b3cd58f8cb/sentiment" AccountId="046ad38a-73da-4c18-8e8e-b970abd9f38c" Description="" Id="064c5b03-c85d-40dc-b5fc-225f458e7c38" InputDescription="Text to be analyzed. For example: 'I am dissatisfied with this service.'" InputType="JSON" Name="sentiment" OutputDescription="JSON with class name and confidence on that class prediction (between 0-1) Class prediction can be one of: 'Very Negative', 'Negative', 'Neutral', 'Positive', 'Very Positive' For example: '{'sentiment': 'Very Negative', 'confidence': 0.97}'" ProjectId="4ed325cd-7449-4b01-ae50-c277c5f4e4cc" TenantId="4da9150e-3406-4eb6-9e8e-64b3cd58f8cb" />
+                            </uma:MLSkills.SelectedMLSkill>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uma:MLSkills>
+                          <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="350,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[JSONObject]" JsonString="[JSON_data]" />
+                          <Assign sap:VirtualizedContainerService.HintSize="350,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[sentiment]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[JSONObject("sentiment").ToString]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="350,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[confidence]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[JSONObject("confidence").ToString]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{sender, subject, input, sentiment, confidence, time}]" DataTable="[emaildt]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="350,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEach.Body>
+                  </ui:ForEach>
+                  <FlowStep.Next>
+                    <FlowStep x:Name="__ReferenceID6">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">170,474.5</av:Point>
+                          <av:Size x:Key="ShapeSize">200,51</av:Size>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:WriteRange AddHeaders="True" DataTable="[emaildt]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="C:\Users\91992\Desktop\English Emails.xlsx">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:WriteRange>
+                    </FlowStep>
+                  </FlowStep.Next>
+                </FlowStep>
+              </FlowStep.Next>
+            </FlowStep>
+          </FlowStep.Next>
+        </FlowStep>
+      </FlowStep.Next>
+    </FlowStep>
+    <FlowStep x:Name="__ReferenceID7">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">140,54.5</av:Point>
+          <av:Size x:Key="ShapeSize">200,22</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">240,76.5 240,106.5 220,106.5 220,141</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:GetOutlookMailMessages Filter="{x:Null}" FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="shrt08012002@gmail.com" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_3" MailFolder="Inbox" MarkAsRead="False" Messages="[listofmails]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Top="20">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:GetOutlookMailMessages>
+      <FlowStep.Next>
+        <x:Reference>__ReferenceID2</x:Reference>
+      </FlowStep.Next>
+    </FlowStep>
+    <x:Reference>__ReferenceID3</x:Reference>
+    <x:Reference>__ReferenceID4</x:Reference>
+    <x:Reference>__ReferenceID5</x:Reference>
+    <x:Reference>__ReferenceID6</x:Reference>
+  </Flowchart>
+</Activity>
